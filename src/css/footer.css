@@ -1,0 +1,27 @@
+.container-footer {
+  background-color: var(--main1);
+    height: 50vh;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: min(max(15px, 2vw), 20px);
+    padding: 0 10%;
+    color: var(--second);
+    text-align: center;
+}
+
+.fa-arrow-up {
+    cursor: pointer;
+    font-size: 25px;
+    transition: 0.3s;
+    color: #2ec4b6;
+    text-align: center;
+    padding: 7px 10px;
+    border-radius: 5px;
+  }
+  
+
+.fa-arrow-up:active {
+    color: #FEFEFF;
+    background-color: #2ec4b6;
+  }
+  
