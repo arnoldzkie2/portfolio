@@ -1,0 +1,156 @@
+@import '../../scss/global.scss';
+.contact-container {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  background-color: $second;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .contact-text {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 50px;
+
+    h1 {
+      color: $accent;
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    h2 {
+      color: $accent;
+      font-size: 2rem;
+    }
+
+    p {
+      color: $accent1;
+      margin-top: 20px;
+    }
+  }
+
+  .contact-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    .contact,.message {
+      background-color: $second1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 80vw;
+      height: 370px;
+      max-width: 380px;
+      border-radius: 5px;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+      gap: 10px;
+      align-items: center;
+
+      h1 {
+        color: $accent;
+        margin-bottom: 10px;
+        letter-spacing: -1px;
+      }
+
+      .contact-wrapper {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        h3 {
+          color: $accent;
+        }
+        i {
+          color: $main;
+          cursor: pointer;
+        }
+        p {
+          color: $accent1;
+        }
+
+      }
+    }
+  }
+  .message {
+    form {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .field {
+        display: flex;
+        gap: 10px;
+        input {
+          width: 100%;
+          padding: 0 8px;
+          font-size: 1rem;
+          border: none;
+          outline: none;
+          background-color: $second;
+          color: $accent;
+          margin: 10px 0;
+          border-radius: 5px;
+          height: 40px;
+          &:focus {
+            outline: 1px solid $main;
+          }
+        }
+      }
+      .msg-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        textarea {
+          height: 100%;
+          outline: none;
+          background-color: $second;
+          border: none;
+          padding: 10px;
+          font-size: 1rem;
+          border-radius: 5px;
+          resize: none;
+          margin-bottom: 10px;
+
+          &:focus {
+            outline: 1px solid $main;
+          }
+        }
+
+        button {
+          height: 45px;
+          border: none;
+          background-color: $main;
+          color: $second;
+          font-size: 1.2rem;
+          border-radius: 3px;
+          cursor: pointer;
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .contact-container {
+    padding: 5% 0;
+    flex-direction: column;
+    .contact-text {
+      h1 {
+        font-size: 3rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}

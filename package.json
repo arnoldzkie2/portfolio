@@ -1,5 +1,5 @@
 {
-  "name": "meme",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "aos": "^2.3.4",
-    "firebase": "^9.18.0",
+    "emailjs": "^4.0.1",
     "nanoid": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -18,6 +19,7 @@
     "react-scroll": "^1.8.9",
     "react-spinners": "^0.13.8",
     "react-transition-group": "^4.4.5",
+    "sass": "^1.62.0",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

@@ -1,16 +1,22 @@
 import React from "react";
-import Client from "./admin/AdminPanel";
-import { Routes, Route } from "react-router-dom";
-import Home from "./home/Home";
+import Contact from "./components/Contact/Contact";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import Project from "./components/Project/Project";
+import About from "./components/About/About";
 
 const App = () => {
 
-  return (
-    <Routes>
-      <Route
-        path="/" element={<Home />} />
-      <Route path="/admin-panel" element={<Client />} />
-    </Routes>
+ return (
+  <>
+  <Header />
+  <Main />
+  <About />
+  <Project />
+  <Contact />
+  <Footer />
+  </>
   );
 }
 

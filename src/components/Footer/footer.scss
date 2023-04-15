@@ -1,0 +1,39 @@
+@import '../../scss/global.scss';
+.container-footer {
+    background-color: $second1;
+    height: 50vh;
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: min(max(17px, 3vw), 22px);
+    padding: 0 10%;
+    color: $accent;
+    text-align: center;
+    .credits {
+      padding: 0 10px;
+    }
+}
+.fa-arrow-up {
+    cursor: pointer;
+    font-size: 25px;
+    transition: 0.3s;
+    color: $main;
+    text-align: center;
+    padding: 7px 20px;
+    border-radius: 5px;
+  }
+  
+
+.fa-arrow-up:active {
+    color: $second;
+    background-color: $main;
+  }
+
+  @media (max-width:720px) {
+    .container-footer {
+      height: 40vh;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }

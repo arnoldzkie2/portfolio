@@ -1,0 +1,33 @@
+@import '../../scss/global.scss';
+
+.main {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  align-items: center;
+  .banner {
+    z-index: 1;
+    background: var(--second1);
+    color: $main;
+    border-radius: 5px;
+    margin-right: 10px;
+    padding: 1px 15px;
+
+    div {
+      position: absolute;
+      width: 90%;
+      color: $second;
+      bottom: 8%;
+      text-align: center;
+      left: 5%;
+      z-index: 2;
+      font-weight: 900;
+      font-size: min(max(3rem, 5vw), 4.5rem);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

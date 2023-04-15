@@ -1,0 +1,148 @@
+@import "../../scss/global.scss";
+
+.project-container {
+  width: 100%;
+  background-color: $second1;
+  display: flex;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  flex-direction: column;
+  .project-header {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    justify-content: space-between;
+    padding-left: 5%;
+    h1 {
+      text-align: center;
+      font-weight: 900;
+      right: 10%;
+      top: 40%;
+      font-size: min(max(3.5rem, 5vw),4.5rem);
+      color: $accent;
+      letter-spacing: -2px;
+    }
+    img {
+      height: 100%;
+      width: 60%;
+    }
+  }
+
+  .project-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+    background-color: $second;
+    .project {
+      display: flex;
+      margin: 5% 0;
+      border-radius: 5px;
+      position: relative;
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+      align-items: center;
+      background-color: $second1;
+      img {
+        width: 45vw;
+        cursor: pointer;
+      }
+      .description {
+        display: flex;
+        z-index: 1;
+        flex-direction: column;
+        left: 0;
+        color: $main1;
+        font-size: min(max(0.8rem, 3vw), 1rem);
+        align-items: flex-start;
+        padding: 0 30px;
+
+        h1 {
+          letter-spacing: -1px;
+          margin: 10px 0 0 0;
+          font-weight: 800;
+          font-size: min(max(2rem, 3vw), 3rem);
+          color: $accent;
+
+          span {
+            background-color: $accent;
+            color: $second1;
+            font-size: min(max(1.6rem, 3vw), 2.5rem);
+            margin-right: 15px;
+            padding: 0 5px;
+            border-radius: 3px;
+          }
+        }
+        p {
+          color: $accent1;
+          margin: 4% 0;
+        }
+
+        h5 {
+          margin-bottom: 2%;
+          font-size: min(max(0.7rem, 3vw), 1rem);
+          color: $accent1;
+        }
+        a {
+          color: $main1;
+          cursor: pointer;
+          text-decoration: underline;
+          margin-bottom: 20px;
+          i {
+            color: $main1;
+            font-size: 1.1rem;
+            margin-right: 10px;
+            cursor: pointer;
+          }
+        }
+          
+      }
+      .project-buttons {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        gap: 20px;
+      }
+
+      button {
+        color: $main1;
+        border: 1px solid $main1;
+        background-color: transparent;
+        outline: none;
+        width: 120px;
+        border-radius: 2px;
+        height: 40px;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        cursor: pointer;
+        i {
+          color: $main1;
+        }
+      }
+      
+    }
+  }
+}
+@media (max-width: 720px) {
+  .project-container {
+    .project-div {
+      .project {
+        flex-direction: column;
+        width: 82vw;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .project-header {
+      margin-top: 50px;
+      padding: 0;
+      flex-direction: column;
+      gap: 20px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
