@@ -28,7 +28,7 @@ const About = () => {
         <h1>TECH SKILLS</h1>
       <div className="skills-container">
         {aboutDAta.map((item) => {
-          return <div className="card">
+          return <div className="card" key={item.id}>
             <h2>{item.language}</h2>
             <img src={item.img} alt={item.language} />
             <p>{item.description}</p>
