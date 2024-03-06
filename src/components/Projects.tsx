@@ -26,14 +26,14 @@ const Projects = ({ ProjectsRef }: Props) => {
               <p className='text-muted-foreground'>{project.description}</p>
               <div className='flex w-full flex-col gap-5 border-t xl:flex-row xl:justify-between pt-3'>
                 <div className='flex items-center gap-4'>
-                  <Label className='font-black text-lg'>Stack:</Label>
+                  <Label className='font-black sm:text-lg'>Stack:</Label>
                   {project.used.map((obj, i) => (
                     <Image width={35} height={35} src={obj} alt={obj} key={obj} className={`${i === 0 && 'bg-white rounded-full'}`} />
                   ))
                   }
                 </div>
                 <div className='flex items-center gap-4'>
-                  <Label className='font-black text-lg'>Links:</Label>
+                  <Label className='font-black sm:text-lg'>Links:</Label>
                   <Link target='_blank' href={project.links.github}>
                     <Button className='space-x-3' variant={'outline'}>
                       <p>Source</p>
