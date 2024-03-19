@@ -20,7 +20,7 @@ const Introduction = ({ IntroductionRef }: Props) => {
     <div className='flex padding flex-col items-center gap-12 md:gap-20 py-12 md:py-24' id='Introduction' ref={IntroductionRef}>
       <h1 className='text-3xl lg:text-4xl font-black text-center'>{introductionText.h1}</h1>
       <div className='w-full flex flex-col gap-10 md:flex-row md:gap-20'>
-        <Image src={'/icons/unnamed.webp'} width={400} height={400} className='h-auto w-full sm:w-96 md:w-[400px] self-center' alt='Profile' />
+        <Image src={'/icons/avatar.webp'} width={400} height={400} className='h-auto w-full sm:w-96 md:w-[400px] self-center' alt='Profile' />
         <Separator className='hidden md:flex h-[400px] self-center' orientation='vertical' />
         <div className='flex flex-col gap-5 text-sm text-muted-foreground w-full md:w-1/2'>
           <Label className='text-2xl md:text-3xl text-foreground'>{introductionText.text.h1}</Label>
