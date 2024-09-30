@@ -12,10 +12,10 @@ interface Props {
 
 const Expertise = ({ ExpertiseRef }: Props) => {
   return (
-    <div className='padding bg-secondary py-20 flex items-center flex-col gap-12 md:gap-16 lg:gap-24 xl:gap-28 lg:justify-center' >
-      <h1 className='text-3xl lg:text-4xl font-black border-b pb-2' >{expertiseTexts.h1}</h1>
+    <div className='padding bg-secondary pt-20 lg:py-32 flex items-center flex-col gap-12 md:gap-16 lg:gap-24 xl:gap-28 lg:justify-center' >
+      <h1 className='text-3xl lg:text-4xl font-black border-b-2 border-primary pb-2'>{expertiseTexts.h1}</h1>
       <div className='flex flex-col w-full gap-5'>
-        <h1 className='text-lg md:text-xl text-primary font-black'>{expertiseTexts.skills.tech.h1}</h1>
+        <h1 className='text-lg md:text-xl text-primary font-black underline'>{expertiseTexts.skills.tech.h1}</h1>
         <div className='w-full' ref={ExpertiseRef} id='Expertise'>
           <Carousel
             className="w-full"
@@ -26,7 +26,7 @@ const Expertise = ({ ExpertiseRef }: Props) => {
                   <Card>
                     <CardHeader>
                       <CardTitle>
-                        <Image width={50} height={50} src={skill.icon} alt={skill.title} className={`${index === 0 || index === 1 || index === 8 ? 'bg-white rounded-full' : ''}`} />
+                        <Image width={50} height={50} src={skill.icon} alt={skill.title} className={`${index === 0 || index === 1 || index > 8 ? 'bg-white rounded-full' : ''}`} />
                       </CardTitle>
                     </CardHeader>
                     <CardContent className='flex flex-col gap-2 pt-2'>
@@ -48,15 +48,15 @@ const Expertise = ({ ExpertiseRef }: Props) => {
       </div>
 
       <div className='flex flex-col w-full gap-12'>
-        <h1 className='text-lg md:text-xl text-primary font-black'>{expertiseTexts.skills.programming.h1}</h1>
-        <div className='flex w-full items-center flex-col gap-14 md:flex-row md:flex-wrap'>
+        <h1 className='text-lg md:text-xl text-primary font-black underline'>{expertiseTexts.skills.programming.h1}</h1>
+        <div className='flex w-full items-center flex-col gap-5 lg:gap-x-20 md:flex-row md:flex-wrap justify-center'>
           {expertiseTexts.skills.programming.skills.map(skill => (
-            <div key={skill.title} className='w-full sm:w-96 md:w-80 lg:w-96 xl:w-[390px] 2xl:w-96 flex items-center gap-12'>
+            <div key={skill.title} className='w-full md:w-[40%] xl:w-[45%] flex items-center gap-10'>
               <div className='flex flex-col gap-1.5'>
                 <Label className='text-xl'>{skill.title}</Label>
                 <p className='text-sm text-muted-foreground'>{skill.description}</p>
               </div>
-              <FontAwesomeIcon icon={skill.icon} width={48} height={48} className='text-5xl' />
+              <FontAwesomeIcon icon={skill.icon} width={30} height={30} className='text-4xl' />
             </div>
           ))}
         </div>

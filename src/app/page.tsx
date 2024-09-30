@@ -27,16 +27,16 @@ const HomePage = () => {
   }, [])
 
   return (
-    <>
+    <div className='overflow-x-hidden'>
       <Header sectionRefs={sectionRefs} />
       <Main MainRef={sectionRefs.Home} />
-      <Introduction IntroductionRef={sectionRefs.Introduction} />
-      <Service ServiceRef={sectionRefs.Service} />
-      <Expertise ExpertiseRef={sectionRefs.Expertise} />
       <Projects ProjectsRef={sectionRefs.Projects} />
+      <Introduction IntroductionRef={sectionRefs.Introduction} />
+      <Expertise ExpertiseRef={sectionRefs.Expertise} />
+      <Service ServiceRef={sectionRefs.Service} />
       <Contact />
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -25,8 +25,8 @@ const Main = ({ MainRef }: Props) => {
             <Carousel className='h-full flex items-center'>
                 <CarouselContent>
                     <CarouselItem>
-                        <div className='flex w-full flex-col items-center text-center gap-8 md:gap-12 lg:gap-20 xl:gap-20'>
-                            <h1 className='text-5xl md:text-5xl lg:text-6xl 2xl:text-7xl font-black'>{mainText.h1}</h1>
+                        <div className='flex w-full flex-col items-center text-center gap-8 md:gap-12'>
+                            <h1 className='text-5xl md:text-5xl lg:text-6xl font-black 2xl:w-4/5'>{mainText.h1}</h1>
                             <h2 className='text-muted-foreground lg:w-2/3 lg:text-xl'>{mainText.h2}</h2>
                             <div className='flex items-center justify-center gap-5'>
                                 <Button>
@@ -56,7 +56,6 @@ const Main = ({ MainRef }: Props) => {
                     </CarouselItem>
                 </CarouselContent>
             </Carousel>
-
         </div >
     )
 }

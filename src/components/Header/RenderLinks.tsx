@@ -19,7 +19,7 @@ const RenderLinks = (props: Props) => {
     const { open, setOpen, activeLink } = props
 
     const mobileScreen = (
-        <nav className='md:hidden flex items-center justify-between w-full'>
+        <nav className='lg:hidden flex items-center justify-between w-full'>
             <ScrollLink
                 href='#Home'
                 to='Home'
@@ -74,7 +74,7 @@ const RenderLinks = (props: Props) => {
     )
 
     const largeScreen = (
-        <ul className='items-center gap-8 text-muted-foreground hidden md:flex text-sm'>
+        <ul className='items-center gap-8 text-muted-foreground hidden lg:flex text-sm'>
             {headerLinks.map(link => (
                 <ScrollLink
                     to={link}
@@ -96,7 +96,8 @@ const RenderLinks = (props: Props) => {
                     <Button className="px-3 text-foreground" variant="ghost">
                         <FontAwesomeIcon
                             icon={faGithub}
-                            width={16} height={16}
+                            width={20} height={20}
+                            className="text-lg"
                         />
                     </Button>
                 </Link>

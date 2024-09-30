@@ -5,7 +5,7 @@ import { faDatabase, faTachometerAlt, faGraduationCap, faBug } from '@fortawesom
 const logoText = 'A/N'
 const email = 'arnoldzkie22@gmail.com'
 
-const headerLinks = ['Introduction', 'Service', 'Expertise', 'Projects']
+const headerLinks = ['Projects', 'Introduction', 'Expertise', 'Service']
 
 const mainText = {
     h1: 'Transforming Ideas into Functional Web Applications',
@@ -40,7 +40,7 @@ const introductionText = {
     text: {
         h1: "Hello World",
         paragraphs: {
-            p1: "I'm Arnold Nillas, 21 years old, a developer who can get the job done.",
+            p1: "I'm Arnold Nillas, 21 years old, a developer who loves to solve problems.",
             p2: "I've been diving deep into web development, learning how to create awesome user interfaces and build strong server-side applications through self-teaching. It's been quite a journey, but I'm getting the hang of it!",
             p3: "Over the past year, I've really enjoyed solving coding puzzles and making ideas into real websites. I've been all in, from thinking up ideas to actually making them work online.",
             p4: "Click this button below :D"
@@ -181,33 +181,23 @@ const projectTexts = {
     h1: "Featured Projects",
     projects: [
         {
+            name: "SonicNode",
+            description: "A reliable Minecraft server hosting in Philippines. (built by me)",
+            image: '/projects/sonicnode.png',
+            used: ["/icons/nextjs.svg", "/icons/tailwind.svg", '/icons/mysql.svg', "/icons/typescript.svg",],
+            links: {
+                web: 'https://www.sonicnode.xyz/',
+                github: 'https://github.com/arnoldzkie2/sonicnode'
+            }
+        },
+        {
             name: "Verbalace",
             description: "Portfolio website for language and verbal skill enhancement.",
             image: '/projects/verbalace.png',
-            used: ["/icons/nextjs.svg", "/icons/typescript.svg", "/icons/tailwind.svg"],
+            used: ["/icons/nextjs.svg", "/icons/typescript.svg", "/icons/tailwind.svg", '/icons/mysql.svg'],
             links: {
                 web: 'https://www.verbalace.com/',
-                github: 'https://github.com/arnoldzkie2'
-            }
-        },
-        {
-            name: "Bahmas",
-            description: "The Bahamas app is a comprehensive system for managing records of children, mothers, patients, and the population. It facilitates adding, reading, updating, and deleting records for each category, along with features for managing medicine and medicine logs.",
-            image: "/projects/bahmas.png",
-            used: ["/icons/php.svg", "/icons/html.svg", "/icons/css.svg", "/icons/mysql.svg"],
-            links: {
-                web: 'https://github.com/arnoldzkie2/bahmas',
-                github: 'https://github.com/arnoldzkie2/bahmas'
-            }
-        },
-        {
-            name: "Portfolio",
-            description: "Explore my portfolio of web development projects. From backend to user interfaces, see my work and let's collaborate!",
-            image: "/projects/portfolio.png",
-            used: ["/icons/nextjs.svg", "/icons/typescript.svg", "/icons/tailwind.svg"],
-            links: {
-                web: process.env.NEXT_PUBLIC_URL!,
-                github: 'https://github.com/arnoldzkie2/portfolio'
+                github: 'https://github.com/arnoldzkie2/verbalace'
             }
         },
     ]

@@ -45,13 +45,13 @@ const Header = ({ sectionRefs }: Props) => {
     }, [sectionRefs]);
 
     return (
-        <header className='fixed top-0 left-0 w-screen h-14 z-20 flex items-center justify-between padding border-b backdrop-blur'>
+        <header className='fixed top-0 left-0 w-screen h-14 z-20 flex items-center justify-between padding border-b bg-card backdrop-blur'>
             <ScrollLink
                 href='#Home'
                 to='Home'
                 smooth={true}
                 duration={2000}
-                className={`font-black hidden md:flex text-3xl ${activeLink === 'Home' ? 'text-primary' : 'text-foreground'}`}
+                className={`font-black hidden lg:flex text-3xl ${activeLink === 'Home' ? 'text-primary' : 'text-foreground'}`}
             >{logoText}</ScrollLink>
             <RenderLinks
                 activeLink={activeLink}
