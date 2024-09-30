@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { Separator } from './ui/separator';
 
 interface Props {
   ProjectsRef: React.MutableRefObject<null>;
@@ -19,7 +20,10 @@ const Projects = ({ ProjectsRef }: Props) => {
         <div className='w-full h-20 md:h-52 absolute bg-primary bottom-0 rounded-t-[100%]'>
         </div>
       </div>
-      <h1 className='text-4xl text-secondary font-black border-b pb-2' id='Projects' ref={ProjectsRef}>{projectTexts.h1}</h1>
+      <div className='space-y-2'>
+        <h1 className='text-3xl lg:text-4xl text-secondary font-black' id='Projects' ref={ProjectsRef}>{projectTexts.h1}</h1>
+        <Separator className='w-2/3 h-[3px] rounded-full' />
+      </div>
       <div className='flex w-full flex-col gap-32 lg:gap-40'>
         {projectTexts.projects.map((project, index) => (
           <div className='flex justify-center' key={index}>
@@ -32,10 +36,8 @@ const Projects = ({ ProjectsRef }: Props) => {
                   className='h-auto w-full shadow-lg rounded-2xl hover:shadow-2xl' />
               </Link>
               <p className='text-muted-foreground'>{project.description}</p>
-              <div className='flex w-full flex-wrap gap-10 border-t justify-between pt-3'>
-                <Link href={project.links.web} target='_blank' className='hidden lg:flex'>
-                  <h1 className='text-3xl text-secondary underline uppercase' >{project.name}</h1>
-                </Link>
+              <div className='flex w-full flex-wrap gap-10 justify-between '>
+                <h1 className='text-3xl text-primary font-[1000] px-8 py-1 rounded-tl-full rounded-b-full bg-muted uppercase hidden lg:flex'>{project.name}</h1>
                 <div className='flex items-center gap-4'>
                   {project.used.map((obj, i) => (
                     <Image width={30} height={30} src={obj} alt={obj} key={obj} className={`${i === 0 && 'bg-white rounded-full'}`} />

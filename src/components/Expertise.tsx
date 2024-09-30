@@ -5,6 +5,7 @@ import { Label } from './ui/label';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import Image from 'next/image';
+import { Separator } from './ui/separator';
 
 interface Props {
   ExpertiseRef: React.MutableRefObject<null>;
@@ -13,9 +14,12 @@ interface Props {
 const Expertise = ({ ExpertiseRef }: Props) => {
   return (
     <div className='padding bg-secondary pt-20 lg:py-32 flex items-center flex-col gap-12 md:gap-16 lg:gap-24 xl:gap-28 lg:justify-center' >
-      <h1 className='text-3xl lg:text-4xl font-black border-b-2 border-primary pb-2'>{expertiseTexts.h1}</h1>
+      <div className='space-y-2'>
+        <h1 className='text-3xl lg:text-4xl font-[1000] text-center'>{expertiseTexts.h1}</h1>
+        <Separator className='w-2/3 h-[3px] bg-primary rounded-full ml-auto' />
+      </div>
       <div className='flex flex-col w-full gap-5'>
-        <h1 className='text-lg md:text-xl text-primary font-black underline'>{expertiseTexts.skills.tech.h1}</h1>
+        <h1 className='text-xl md:text-2xl rounded-tr-full text-center py-2 px-63 rounded-bl-full font-black w-60 bg-primary text-secondary'>{expertiseTexts.skills.tech.h1}</h1>
         <div className='w-full' ref={ExpertiseRef} id='Expertise'>
           <Carousel
             className="w-full"
@@ -48,7 +52,7 @@ const Expertise = ({ ExpertiseRef }: Props) => {
       </div>
 
       <div className='flex flex-col w-full gap-12'>
-        <h1 className='text-lg md:text-xl text-primary font-black underline'>{expertiseTexts.skills.programming.h1}</h1>
+        <h1 className='text-xl md:text-2xl w-72 text-center text-secondary font-black px-3 py-2 rounded-tr-full rounded-bl-full bg-primary'>{expertiseTexts.skills.programming.h1}</h1>
         <div className='flex w-full items-center flex-col gap-5 lg:gap-x-20 md:flex-row md:flex-wrap justify-center'>
           {expertiseTexts.skills.programming.skills.map(skill => (
             <div key={skill.title} className='w-full md:w-[40%] xl:w-[45%] flex items-center gap-10'>

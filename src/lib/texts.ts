@@ -38,9 +38,9 @@ const socialLinks = [
 const introductionText = {
     h1: "Who Am I",
     text: {
-        h1: "Hello World",
+        h1: "Arnold Nillas",
         paragraphs: {
-            p1: "I'm Arnold Nillas, 21 years old, a developer who loves to solve problems.",
+            p1: "I'm a 21 year old developer who loves to solve problems.",
             p2: "I've been diving deep into web development, learning how to create awesome user interfaces and build strong server-side applications through self-teaching. It's been quite a journey, but I'm getting the hang of it!",
             p3: "Over the past year, I've really enjoyed solving coding puzzles and making ideas into real websites. I've been all in, from thinking up ideas to actually making them work online.",
             p4: "Click this button below :D"
@@ -186,7 +186,7 @@ const projectTexts = {
             image: '/projects/sonicnode.png',
             used: ["/icons/nextjs.svg", "/icons/tailwind.svg", '/icons/mysql.svg', "/icons/typescript.svg",],
             links: {
-                web: 'https://www.sonicnode.xyz/',
+                web: 'https://sonicnode.xyz/',
                 github: 'https://github.com/arnoldzkie2/sonicnode'
             }
         },

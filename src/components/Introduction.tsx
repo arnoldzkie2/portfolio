@@ -22,12 +22,15 @@ const Introduction = ({ IntroductionRef }: Props) => {
         <div className='w-full h-20 md:h-44 absolute bg-card bottom-0 rounded-tl-[100%]'>
         </div>
       </div>
-      <h1 className='text-3xl lg:text-4xl font-black text-center border-b-2 border-primary pb-2'>{introductionText.h1}</h1>
+      <h1 className='text-3xl lg:text-4xl font-[1000] text-center'>{introductionText.h1}</h1>
       <div className='w-full flex flex-col gap-10 md:flex-row md:gap-10 lg:gap-20'>
         <Image src={'/icons/avatar.jpg'} width={300} height={300} className='h-auto max-w-[350px] md:w-full w-full self-center rounded-tl-[40%] rounded-br-[40%]' alt='Profile' />
         <Separator className='hidden lg:flex h-[400px] self-center' orientation='vertical' />
         <div className='flex flex-col gap-5 text-sm text-muted-foreground w-full md:w-1/2'>
-          <Label className='text-2xl text-foreground'>{introductionText.text.h1}</Label>
+          <div>
+            <Label className='text-xl lg:text-2xl text-foreground'>{introductionText.text.h1}</Label>
+            <Separator className='w-24 lg:w-28 h-[3px] rounded-full bg-primary' />
+          </div>
           <p>{paragraphs.p1}</p>
           <p>{paragraphs.p2}</p>
           <p>{paragraphs.p3}</p>
