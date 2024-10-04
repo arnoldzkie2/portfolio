@@ -31,10 +31,10 @@ const Introduction = ({ IntroductionRef }: Props) => {
             <Label className='text-xl lg:text-2xl text-foreground'>{introductionText.text.h1}</Label>
             <Separator className='w-24 lg:w-28 h-[3px] rounded-full bg-primary' />
           </div>
-          <p>{paragraphs.p1}</p>
-          <p>{paragraphs.p2}</p>
-          <p>{paragraphs.p3}</p>
-          <p>{paragraphs.p4}</p>
+          <p data-aos="fade-in" data-aos-duration={1000}>{paragraphs.p1}</p>
+          <p data-aos="fade-in" data-aos-duration={1500}>{paragraphs.p2}</p>
+          <p data-aos="fade-in" data-aos-duration={2000}>{paragraphs.p3}</p>
+          <p data-aos="fade-in" data-aos-duration={2500}>{paragraphs.p4}</p>
 
           <div className='mt-auto flex items-center flex-col gap-5 sm:flex-row md:flex-col xl:flex-row sm:justify-between w-full'>
             <div className='flex items-center gap-5 w-full sm:w-auto'>

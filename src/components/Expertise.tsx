@@ -18,8 +18,11 @@ const Expertise = ({ ExpertiseRef }: Props) => {
         <h1 className='text-3xl lg:text-4xl font-[1000] text-center'>{expertiseTexts.h1}</h1>
         <Separator className='w-2/3 h-[3px] bg-primary rounded-full ml-auto' />
       </div>
-      <div className='flex flex-col w-full gap-5'>
-        <h1 className='text-xl md:text-2xl rounded-tr-full text-center py-2 px-63 rounded-bl-full font-black w-60 bg-primary text-secondary'>{expertiseTexts.skills.tech.h1}</h1>
+      <div className='flex flex-col w-full gap-5 pt-10'>
+        <div className='text-xl md:text-2xl flex items-center gap-2 font-black'>
+          <div className='h-5 w-[3px] bg-primary'></div>
+          {expertiseTexts.skills.tech.h1}
+        </div>
         <div className='w-full' ref={ExpertiseRef} id='Expertise'>
           <Carousel
             className="w-full"
@@ -28,13 +31,9 @@ const Expertise = ({ ExpertiseRef }: Props) => {
               {expertiseTexts.skills.tech.skills.map((skill, index) => (
                 <CarouselItem key={index} className="md:pl-4 sm:basis-1/2 lg:basis-1/3 w-full">
                   <Card>
-                    <CardHeader>
-                      <CardTitle>
-                        <Image width={50} height={50} src={skill.icon} alt={skill.title} className={`${index === 0 || index === 1 || index > 8 ? 'bg-white rounded-full' : ''}`} />
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className='flex flex-col gap-2 pt-2'>
-                      <Label className='text-lg md:text-xl'>{skill.title}</Label>
+                    <CardContent className='flex flex-col gap-2 pt-5'>
+                      <Image width={45} height={45} src={skill.icon} alt={skill.title} className={`${index === 0 || index === 1 || index > 8 ? 'bg-white rounded-full' : ''}`} />
+                      <Label className='text-lg md:text-xl pt-2'>{skill.title}</Label>
                       <p className='text-muted-foreground text-sm'>{skill.description}</p>
                     </CardContent>
                   </Card>
@@ -52,7 +51,10 @@ const Expertise = ({ ExpertiseRef }: Props) => {
       </div>
 
       <div className='flex flex-col w-full gap-12'>
-        <h1 className='text-xl md:text-2xl w-72 text-center text-secondary font-black px-3 py-2 rounded-tr-full rounded-bl-full bg-primary'>{expertiseTexts.skills.programming.h1}</h1>
+        <div className='text-xl md:text-2xl flex items-center gap-2 font-black'>
+          <div className='h-5 w-[3px] bg-primary'></div>
+          {expertiseTexts.skills.programming.h1}
+        </div>
         <div className='flex w-full items-center flex-col gap-5 lg:gap-x-20 md:flex-row md:flex-wrap justify-center'>
           {expertiseTexts.skills.programming.skills.map(skill => (
             <div key={skill.title} className='w-full md:w-[40%] xl:w-[45%] flex items-center gap-10'>
