@@ -1,6 +1,6 @@
 import { expertiseTexts } from '@/lib/texts';
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent } from './ui/card';
 import { Label } from './ui/label';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
