@@ -45,7 +45,7 @@ const serviceTexts = {
             category: 'Full stack applications',
             description: 'Turn your idea into an application with thoughtful interfaces and the systems to support them.',
             deliverables: ['Interactive interfaces', 'API & database integration', 'Maintainable application code'],
-            projectName: 'Tych',
+            projectName: 'Stylus',
         },
         {
             icon: faPuzzlePiece,
@@ -179,13 +179,13 @@ const projectTexts = {
             }
         },
         {
-            name: "Tych",
+            name: "Stylus",
             description: "A modern DeFi platform focused on making growth predictable through simple, accessible, and transparent financial products.",
-            image: '/projects/tych.png',
-            used: ["/icons/nextjs.svg", "/icons/typescript.svg", "/icons/tailwind.svg", '/icons/mysql.svg'],
+            image: '/projects/stylus.png',
+            used: ["/icons/nextjs.svg", "/icons/typescript.svg", "/icons/tailwind.svg", '/icons/mysql.svg', '/icons/turborepo.svg'],
             links: {
-                web: 'https://tych.io/',
-                github: 'https://tych.io/'
+                web: 'https://stylus-homepage.vercel.app/',
+                github: 'https://stylus-homepage.vercel.app/'
             }
         },
 
