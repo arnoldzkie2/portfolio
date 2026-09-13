@@ -6,6 +6,7 @@ import { socialLinks } from '@/lib/texts'
 import { Button } from './ui/button'
 import SectionHeading from './SectionHeading'
 import AmbientBackground from './AmbientBackground'
+import ActivityTabs from './ActivityTabs'
 
 const principles = [
   { icon: faLightbulb, title: 'Learn by building.', text: 'Self-taught, hands-on, and always looking for the next thing to figure out.' },
@@ -42,6 +43,7 @@ export default function Introduction() {
             </div>
           </div>
         </div>
+        <ActivityTabs />
         <div className="mt-12 grid gap-4 md:grid-cols-3 [&_article]:rounded-lg [&_article]:border [&_article]:border-border [&_article]:bg-background [&_article]:p-6 [&_article]:transition-colors [&_article:hover]:border-accent/40 [&_h3]:mb-2 [&_h3]:mt-5 [&_h3]:text-base [&_h3]:font-medium [&_h3]:tracking-tight [&_p]:text-xs [&_p]:leading-6 [&_p]:text-muted-foreground">
           {principles.map(({ icon, title, text }, index) => (
             <article key={title}>
