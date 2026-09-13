@@ -93,8 +93,8 @@ export default function ActivityTabs() {
             <>
               <div className="mb-4 flex flex-wrap items-center justify-between gap-2 border-t border-border/70 pt-4 text-[10px] text-muted-foreground">
                 <p>{tab.description} <span aria-hidden="true" className="mx-1 text-border">/</span> Past 365 days</p>
-                <span className="inline-flex items-center gap-1.5" title="Updates every five minutes while this tab is open">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent/70" /> Updates every 5 min
+                <span className="inline-flex items-center gap-1.5" title="Checks for updates every five minutes while this tab is active; new data may take longer to appear">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent/70" /> Checks every 5 min
                 </span>
               </div>
               <CodingActivityChart endpoint={tab.endpoint} service={tab.name} label={tab.label} />
