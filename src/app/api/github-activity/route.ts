@@ -1,3 +1,5 @@
+import { renderActivityChart } from '@/lib/activity-chart'
+
 const activityUrl = 'https://github.com/users/facelessuum/contributions'
 const colors = ['#1a1e1b', '#50643a', '#7e9d4a', '#a5c961', '#cef273']
 
@@ -57,25 +59,11 @@ export async function GET(request: Request) {
         headers: { 'Cache-Control': 'public, max-age=300' },
       })
     }
-    const firstDate = Date.parse(days[0].date)
-    // Match Wakapi's Monday–Sunday rows instead of GitHub's Sunday-first layout.
-    const offset = (new Date(firstDate).getUTCDay() + 6) % 7
-    const lastPosition = Math.round((Date.parse(days[days.length - 1].date) - firstDate) / 86_400_000) + offset
-    const weeks = Math.floor(lastPosition / 7) + 1
-    const byDate = new Map(days.map(day => [day.date, day]))
-    const cells = Array.from({ length: weeks * 7 }, (_, position) => {
-      const date = new Date(firstDate + (position - offset) * 86_400_000).toISOString().slice(0, 10)
-      const day = byDate.get(date)
-      const x = Math.floor(position / 7) * 23
-      const y = position % 7 * 23
-      // Display padding cells like zero-contribution days; exclude them from averages.
-      const count = day?.count ?? 0
-      const title = `${count} contribution${count === 1 ? '' : 's'} on ${date}`
-      const fill = day ? colors[day.level] : colors[0]
-      return `<rect x="${x}" y="${y}" width="20" height="20" rx="3" fill="${fill}"><title>${title}</title></rect>`
-    }).join('')
-    const width = weeks * 23
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} 158" width="100%" height="100%"><title>GitHub contributions for facelessuum over the past 365 days</title><style>rect:hover { filter: brightness(1.2); }</style>${cells}</svg>`
+    const svg = renderActivityChart(days.map(day => ({
+      date: day.date,
+      fill: colors[day.level],
+      title: `${day.count} contribution${day.count === 1 ? '' : 's'} on ${new Date(day.date).toUTCString().slice(0, 16)}`,
+    })), 'GitHub contributions for facelessuum over the past 365 days', date => `0 contributions on ${new Date(date).toUTCString().slice(0, 16)}`)
 
     return new Response(svg, {
       headers: {

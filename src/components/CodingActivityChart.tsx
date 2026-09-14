@@ -39,7 +39,7 @@ export default function CodingActivityChart({
       ) : (
         <object
           key={version}
-          data={`${endpoint}?style=6&refresh=${version}`}
+          data={`${endpoint}?style=6&layout=365-padded-v3&refresh=${version}`}
           type="image/svg+xml"
           aria-label={label}
           width={1219}

@@ -1,3 +1,5 @@
+import { renderActivityChart } from '@/lib/activity-chart'
+
 const chartUrl = 'https://wakapi.dev/api/activity/chart/facelessuum.svg'
 
 async function fetchChart() {
@@ -21,38 +23,36 @@ async function fetchChart() {
 
 export async function GET(request: Request) {
   try {
-    let svg = await fetchChart()
+    const source = await fetchChart()
+    const days = Array.from(source.matchAll(/<g\b[^>]*>\s*<title>(\d+) hrs (\d+) mins on ([^<]+)<\/title>\s*<rect\b[^>]*style="fill: #([\da-f]{6})"[^>]*\/?>\s*<\/g>/gi), match => {
+      const timestamp = Date.parse(`${match[3]} 00:00:00 GMT`)
+      if (!Number.isFinite(timestamp)) throw new Error('Unexpected Wakapi activity date')
+      // Map Wakapi's pale-to-dark green scale onto our dark-to-lime palette.
+      const intensity = Math.max(0, Math.min(1, (220 - parseInt(match[4].slice(0, 2), 16)) / 216))
+      const base = [26, 30, 27]
+      const accent = [206, 242, 115]
+      const fill = '#' + base.map((channel, index) => Math.round(channel + (accent[index] - channel) * intensity).toString(16).padStart(2, '0')).join('')
+      return {
+        date: new Date(timestamp).toISOString().slice(0, 10),
+        minutes: Number(match[1]) * 60 + Number(match[2]),
+        title: `${match[1]} hrs ${match[2]} mins on ${match[3]}`,
+        fill,
+      }
+    }).sort((a, b) => a.date.localeCompare(b.date)).slice(-365)
+    if (!days.length) throw new Error('Wakapi daily totals missing')
+
     if (new URL(request.url).searchParams.get('format') === 'summary') {
-      const days = Array.from(svg.matchAll(/<title>(\d+) hrs (\d+) mins on [^<]+<\/title>/g)).slice(-365)
-      if (!days.length) throw new Error('Wakapi daily totals missing')
-      const minutes = days.reduce((total, day) => total + Number(day[1]) * 60 + Number(day[2]), 0)
+      const minutes = days.reduce((total, day) => total + day.minutes, 0)
       return Response.json({ weeklyAverage: minutes / 60 * 7 / days.length, days: days.length }, {
         headers: { 'Cache-Control': 'public, max-age=300' },
       })
     }
-    const dimensions = svg.match(/<svg\s+width="([\d.]+)"\s+height="([\d.]+)"/)
-    if (!dimensions) throw new Error('Unexpected chart format')
-
-    // Crop the empty heading/footer space to the activity grid (y=25 through 183).
-    svg = svg.replace(dimensions[0], `<svg viewBox="0 25 ${dimensions[1]} 158" width="100%" height="100%"`)
-    // Remove the date heading and the bottom-right Wakapi logo, keeping day titles.
-    svg = svg.replace(/<text\b[^>]*>[\s\S]*?<\/text>/gi, '')
-    svg = svg.replace(/<g\b[^>]*>\s*<title>Wakapi\.dev<\/title>\s*<image\b[^>]*\/?>\s*<\/g>/gi, '')
-    svg = svg.replace('fill: #37474F', 'fill: #a0a59d')
-    // Map Wakapi's pale-to-dark green scale onto our dark-to-lime palette.
-    svg = svg.replace(/(<rect\b[^>]*style="fill: )#([\da-f]{6})/gi, (_, prefix: string, color: string) => {
-      const intensity = Math.max(0, Math.min(1, (220 - parseInt(color.slice(0, 2), 16)) / 216))
-      const base = [26, 30, 27]
-      const accent = [206, 242, 115]
-      const themed = base.map((channel, index) => Math.round(channel + (accent[index] - channel) * intensity).toString(16).padStart(2, '0')).join('')
-      return `${prefix}#${themed}`
-    })
-
+    const svg = renderActivityChart(days, 'Daily coding activity over the past 365 days', date =>
+      `0 hrs 0 mins on ${new Date(date).toUTCString().slice(0, 16)}`)
     return new Response(svg, {
       headers: {
         'Content-Type': 'image/svg+xml; charset=utf-8',
         'Cache-Control': 'public, max-age=300',
-        // Keep the third-party SVG inert while allowing its styles and titles.
         'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; sandbox",
         'X-Content-Type-Options': 'nosniff',
       },
