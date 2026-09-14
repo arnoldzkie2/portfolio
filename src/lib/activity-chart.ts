@@ -13,15 +13,16 @@ export function renderActivityChart(days: ActivityCell[], title: string, emptyTi
   const position = (date: string) => Math.round((Date.parse(date) - firstDate) / 86_400_000) + offset
   const lastPosition = position(period[period.length - 1].date)
   const weeks = Math.floor(lastPosition / 7) + 1
+  const positions = new Set(period.map(day => position(day.date)))
+  const dateAtPosition = (index: number) => new Date(firstDate + (index - offset) * 86_400_000).toISOString().slice(0, 10)
+  const emptyCells = Array.from({ length: weeks * 7 }, (_, index) => {
+    if (positions.has(index)) return ''
+    const date = dateAtPosition(index)
+    return `<rect x="${Math.floor(index / 7) * 23}" y="${index % 7 * 23}" width="20" height="20" rx="3" fill="#1a1e1b"><title>${escapeXml(emptyTitle(date))}</title></rect>`
+  }).join('')
   const cells = period.map(day => {
     const index = position(day.date)
     return `<rect x="${Math.floor(index / 7) * 23}" y="${index % 7 * 23}" width="20" height="20" rx="3" fill="${escapeXml(day.fill)}"><title>${escapeXml(day.title)}</title></rect>`
   }).join('')
-  const padding = Array.from({ length: weeks * 7 - lastPosition - 1 }, (_, index) => {
-    const paddedPosition = lastPosition + index + 1
-    const row = paddedPosition % 7
-    const date = new Date(firstDate + (paddedPosition - offset) * 86_400_000).toISOString().slice(0, 10)
-    return `<rect x="${(weeks - 1) * 23}" y="${row * 23}" width="20" height="20" rx="3" fill="#1a1e1b"><title>${escapeXml(emptyTitle(date))}</title></rect>`
-  }).join('')
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${weeks * 23} 158" width="100%" height="100%"><title>${escapeXml(title)}</title><style>rect:hover { filter: brightness(1.2); }</style>${cells}${padding}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${weeks * 23} 158" width="100%" height="100%"><title>${escapeXml(title)}</title><style>rect:hover { filter: brightness(1.2); }</style>${emptyCells}${cells}</svg>`
 }
